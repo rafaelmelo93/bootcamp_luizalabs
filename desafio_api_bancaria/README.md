@@ -1,57 +1,164 @@
-# Desafio: API Bancária Assíncrona com FastAPI
+# 💰 API Bancária - Gerenciamento de Contas e Transações
 
-Neste desafio, foi projetado e implementada uma API RESTful assíncrona usando FastAPI para gerenciar operações bancárias de depósitos e saques, vinculadas a contas correntes.
+API REST desenvolvida com **FastAPI** para simular operações bancárias básicas, incluindo criação de contas, autenticação de usuários e gerenciamento de transações financeiras.
 
-O projeto utiliza as seguintes tecnologias:
-- **FastAPI**: Framework web moderno, rápido (alta performance), para construção de APIs com Python.
-- **SQLAlchemy (Core)**: Toolkit SQL e ORM para mapeamento das tabelas.
-- **Databases (aiosqlite)**: Suporte assíncrono para o banco de dados SQLite.
-- **Pydantic**: Para validação de dados e conversão (schemas).
-- **PyJWT**: Para implementação de autenticação usando JSON Web Tokens (JWT).
-- **Pytest**: Framework para implementação de testes.
+---
 
-## Funcionalidades
+## 📌 Sobre o projeto
 
-1. **Autenticação com JWT**
-   - Rota para realizar "login" e gerar um token de acesso que permite o consumo de rotas seguras.
-2. **Contas Correntes**
-   - Criar conta corrente.
-   - Listar todas as contas correntes.
-   - Obter detalhes de uma conta específica.
-3. **Transações Bancárias**
-   - Realizar depósito (aumenta o saldo).
-   - Realizar saque (diminui o saldo). Valida se há saldo suficiente para o saque, assim como impede valores negativos de transação via validação do Pydantic.
-4. **Extrato Bancário**
-   - Obter o extrato detalhado de uma conta, mostrando todas as transações realizadas (depósitos e saques), ordenado das transações mais recentes para as mais antigas.
+Este projeto foi desenvolvido com o objetivo de praticar conceitos de backend, como:
 
-## Como Executar
+* Arquitetura em camadas
+* Boas práticas com APIs REST
+* Autenticação e segurança
+* Manipulação de banco de dados com ORM
+* Controle de migrações
 
-### 1. Criar um Ambiente Virtual e Ativar
+---
 
-```bash
-python -m venv venv
-# No Windows
-venv\Scripts\activate
-# No Linux/Mac
-source venv/bin/activate
+## 🚀 Tecnologias utilizadas
+
+* **Python 3**
+* **FastAPI**
+* **SQLAlchemy**
+* **Alembic**
+* **Poetry**
+* **Pydantic**
+
+---
+
+## 📁 Estrutura do projeto
+
+```id="dah7bt"
+.
+├── src/
+│   ├── controllers/     # Intermediação entre rotas e regras de negócio
+│   ├── services/        # Regras de negócio da aplicação
+│   ├── models/          # Modelos do banco de dados (ORM)
+│   ├── schemas/         # Validação de dados com Pydantic
+│   ├── views/           # Definição das rotas da API
+│   ├── security.py      # Autenticação e geração de tokens
+│   ├── database.py      # Configuração do banco de dados
+│   ├── config.py        # Configurações gerais
+│   ├── exceptions.py    # Tratamento de erros
+│   └── main.py          # Ponto de entrada da aplicação
+│
+├── migrations/          # Migrações do banco de dados (Alembic)
+├── .env.example         # Variáveis de ambiente
+├── pyproject.toml       # Dependências do projeto
+└── alembic.ini          # Configuração do Alembic
 ```
 
-### 2. Instalar Dependências
+---
 
-```bash
-pip install -r requirements.txt
+## ⚙️ Como executar o projeto
+
+### 1️⃣ Clonar o repositório
+
+```bash id="b4lsbo"
+git clone <URL_DO_REPOSITORIO>
+cd <NOME_DO_PROJETO>
 ```
 
-### 3. Rodar a Aplicação
+---
 
-```bash
-uvicorn app.main:app --reload
+### 2️⃣ Instalar dependências
+
+```bash id="1dsohe"
+poetry install
 ```
 
-## Como Rodar os Testes
+---
 
-Para garantir o funcionamento das rotas assíncronas, você pode rodar os testes utilizando o Pytest:
+### 3️⃣ Configurar variáveis de ambiente
 
-```bash
-pytest tests/
+Crie um arquivo `.env` com base no `.env.example`:
+
+```env id="jt1uxx"
+DATABASE_URL=sqlite:///./database.db
+SECRET_KEY=sua_chave_secreta
+ALGORITHM=HS256
+ACCESS_TOKEN_EXPIRE_MINUTES=30
 ```
+
+---
+
+### 4️⃣ Executar migrações
+
+```bash id="btqc4j"
+alembic upgrade head
+```
+
+---
+
+### 5️⃣ Iniciar a aplicação
+
+```bash id="s8gd3l"
+poetry run uvicorn src.main:app --reload
+```
+
+---
+
+## 🌐 Acessando a API
+
+Após iniciar o servidor:
+
+* Documentação interativa (Swagger):
+  👉 http://localhost:8000/docs
+
+* Documentação alternativa:
+  👉 http://localhost:8000/redoc
+
+---
+
+## 🔑 Funcionalidades
+
+### 👤 Conta
+
+* Criar conta
+* Listar contas
+* Buscar conta por ID
+
+### 🔐 Autenticação
+
+* Login de usuário
+* Geração de token JWT
+
+### 💸 Transações
+
+* Depósito
+* Saque
+* Transferência entre contas
+
+---
+
+## 📌 Exemplo de fluxo
+
+1. Criar uma conta
+2. Fazer login
+3. Receber token JWT
+4. Realizar operações financeiras autenticadas
+
+---
+
+## 🔒 Segurança
+
+* Senhas protegidas com hash
+* Autenticação via JWT
+* Rotas protegidas por token
+
+---
+
+## 🧪 Melhorias futuras
+
+* [ ] Testes automatizados (pytest)
+* [ ] Dockerização do projeto
+* [ ] Logs estruturados
+* [ ] Rate limiting
+* [ ] Deploy em nuvem
+
+---
+
+## 📄 Licença
+
+Este projeto foi desenvolvido para fins educacionais.
