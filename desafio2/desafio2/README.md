@@ -1,22 +1,110 @@
-# Desafio: API Bancária Assíncrona com FastAPI
+# 💰 API de Gerenciamento de Contas e Transações
 
-Neste desafio, você irá projetar e implementar uma API RESTful assíncrona usando FastAPI para gerenciar operações bancárias de depósitos e saques, vinculadas a contas correntes. Este desafio irá lhe proporcionar a experiência de construir uma aplicação backend moderna e eficiente que utiliza autenticação JWT e práticas recomendadas de design de APIs.
+Este projeto é uma API backend para gerenciamento de contas e transações financeiras. Ele permite criar contas, autenticar usuários e registrar operações como depósitos, saques e transferências.
 
-## Objetivos e Funcionalidades
+---
 
-O objetivo deste desafio é desenvolver uma API com as seguintes funcionalidades:
+## 🚀 Tecnologias utilizadas
 
-- **Cadastro de Transações:** Permita o cadastro de transações bancárias, como depósitos e saques.
-- **Exibição de Extrato:** Implemente um endpoint para exibir o extrato de uma conta, mostrando todas as transações realizadas.
-- **Autenticação com JWT:** Utilize JWT (JSON Web Tokens) para garantir que apenas usuários autenticados possam acessar os endpoints que exigem autenticação.
+* Python
+* FastAPI
+* SQLAlchemy
+* Alembic (migrações)
+* Poetry (gerenciamento de dependências)
 
-## Requisitos Técnicos
+---
 
-Para a realização deste desafio, você deve atender aos seguintes requisitos técnicos:
+## 📁 Estrutura do projeto
 
-- **FastAPI:** Utilize FastAPI como framework para criar sua API. Aproveite os recursos assíncronos do framework para lidar com operações de I/O de forma eficiente.
-- **Modelagem de Dados:** Crie modelos de dados adequados para representar contas correntes e transações. Garanta que as transações estão relacionadas a uma conta corrente, e que contas possam ter múltiplas transações.
-- **Validação das operações:** Não permita depósitos e saques com valores negativos, valide se o usuário possui saldo para realizar o saque.
-- **Segurança:** Implemente autenticação usando JWT para proteger os endpoints que necessitam de acesso autenticado.
-- **Documentação com OpenAPI:**  Certifique-se de que sua API esteja bem documentada, incluindo descrições adequad
-as para cada endpoint, parâmetros e modelos de dados.
+```
+.
+├── src/
+│   ├── controllers/     # Lógica de controle das rotas
+│   ├── services/        # Regras de negócio
+│   ├── models/          # Modelos do banco de dados
+│   ├── schemas/         # Validação de dados (Pydantic)
+│   ├── views/           # Definição das rotas
+│   ├── config.py        # Configurações da aplicação
+│   ├── database.py      # Conexão com banco de dados
+│   ├── security.py      # Autenticação e segurança
+│   ├── exceptions.py    # Tratamento de erros
+│   └── main.py          # Ponto de entrada da aplicação
+│
+├── migrations/          # Controle de versões do banco (Alembic)
+├── .env.example         # Exemplo de variáveis de ambiente
+├── pyproject.toml       # Dependências (Poetry)
+└── alembic.ini          # Configuração do Alembic
+```
+
+---
+
+## ⚙️ Como rodar o projeto
+
+### 1. Clonar o repositório
+
+```bash
+git clone <URL_DO_REPOSITORIO>
+cd <NOME_DO_PROJETO>
+```
+
+### 2. Instalar dependências
+
+```bash
+poetry install
+```
+
+### 3. Configurar variáveis de ambiente
+
+Copie o arquivo `.env.example` e renomeie para `.env`, ajustando conforme necessário.
+
+---
+
+### 4. Rodar as migrações
+
+```bash
+alembic upgrade head
+```
+
+---
+
+### 5. Iniciar a aplicação
+
+```bash
+poetry run uvicorn src.main:app --reload
+```
+
+---
+
+## 📌 Funcionalidades
+
+* ✅ Criação de contas
+* 🔐 Autenticação de usuários
+* 💸 Registro de transações
+
+  * Depósitos
+  * Saques
+  * Transferências
+* 📊 Consulta de saldo e histórico
+
+---
+
+## 🔒 Segurança
+
+* Autenticação baseada em tokens
+* Validação de dados com schemas
+* Separação de responsabilidades (controllers, services, models)
+
+---
+
+## 🧪 Possíveis melhorias
+
+* Adicionar testes automatizados
+* Implementar rate limiting
+* Melhorar logs e monitoramento
+* Documentação mais detalhada dos endpoints
+
+---
+
+## 📄 Licença
+
+Este projeto é de uso livre para fins de estudo e desenvolvimento.
