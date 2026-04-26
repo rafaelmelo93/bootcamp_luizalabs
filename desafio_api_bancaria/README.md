@@ -48,9 +48,6 @@ pip install -r requirements.txt
 uvicorn app.main:app --reload
 ```
 
-A documentação interativa da API (Swagger) estará disponível em:
-[http://127.0.0.1:8000/docs](http://127.0.0.1:8000/docs)
-
 ## Como Rodar os Testes
 
 Para garantir o funcionamento das rotas assíncronas, você pode rodar os testes utilizando o Pytest:
