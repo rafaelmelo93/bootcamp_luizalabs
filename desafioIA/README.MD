@@ -163,6 +163,27 @@ Um prompt é uma instrução textual usada para orientar um modelo de IA na gera
 
 ---
 
+## Prompt usado no notebookLM junto as fontes de dados:
+Resuma as principais ideias deste material sobre geração de imagens com IA, destacando conceitos importantes e exemplos práticos.
+
+Explique o conteúdo como se eu fosse iniciante, usando linguagem simples e exemplos claros.
+
+Com base nas fontes, explique como estruturar um prompt eficaz para geração de imagens com IA. Liste os principais elementos e dê exemplos.
+
+Compare um prompt simples com um prompt detalhado e explique por que os resultados são diferentes.
+
+Crie 5 exemplos de prompts de imagem bem estruturados, variando estilos (realista, anime, cyberpunk, artístico, etc).
+
+Quais são os erros mais comuns ao criar prompts de imagem e como evitá-los?
+
+Com base no material, quais são os principais aprendizados e boas práticas para dominar a geração de imagens com IA?
+
+Crie um guia estruturado sobre engenharia de prompts para geração de imagens, incluindo definição, exemplos, glossário e boas práticas.
+
+Analise os conteúdos e gere insights práticos que eu possa aplicar imediatamente para melhorar meus prompts de imagem.
+
+Sugira melhorias para prompts que gerem imagens mais realistas, detalhadas e consistentes.
+
 ## 🔍 Principais Aprendizados
 
 * Prompts específicos geram melhores resultados
