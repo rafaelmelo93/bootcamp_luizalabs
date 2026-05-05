@@ -9,6 +9,9 @@ A proposta consiste na criação de um **Caderno Temático utilizando o Notebook
 Com os avanços recentes na geração de imagens por IA, especialmente com o ChatGPT integrado a modelos de imagem mais avançados, este estudo foca em entender como estruturar prompts eficazes para obter melhores resultados visuais.
 
 ---
+### Link do Notebook LM público: https://notebooklm.google.com/notebook/da3dfaa6-c160-4a4e-87a5-7698f892ecbf
+
+---
 
 ## 🎯 Objetivos
 
